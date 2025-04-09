@@ -3,9 +3,11 @@
 
 require 'zip'
 
+BUILD_WITH_JDK_SPEC_LABEL = 'Build-Jdk: '
+CREATED_BY_SPEC_LABEL = 'Created-By: '
+
 @build_jdk_version = nil
 @build_tools = nil
-
 @target_java_version = Set.new
 
 def bytes_to_int(bytes)
@@ -13,10 +15,6 @@ def bytes_to_int(bytes)
     sum + byte * 256**(bytes.length - index - 1)
   end
 end
-
-BUILD_WITH_JDK_SPEC_LABEL = 'Build-Jdk: '
-
-CREATED_BY_SPEC_LABEL = 'Created-By: '
 
 def examine_meta_inf(entry)
   entry.get_input_stream.read.each_line do |line|
