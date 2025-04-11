@@ -4,7 +4,7 @@ Simplify the chores of verifying release candidates of ASF software.
 
 ## Verify SHA checksum and GPG signatures
 
-* Install `gpg` and `wget`
+* `brew install gnupg wget`
 * Import ASF keys with commands like `wget -O KEYS https://dist.apache.org/repos/dist/release/flink/KEYS && gpg --import KEYS`
 * Run `export LANG=en` in localized environments
 * Run `ruby verify.rb https://dist.apache.org/repos/dist/dev/flink/flink-connector-jdbc-3.3.0-rc1/ [...]`. It will recursively verify every tarball's checksum and signatures.
@@ -23,6 +23,7 @@ Verified tarballs will be saved in `./tmp` directory for further verification.
 
 ## Detect Jar compiling JDK version and Bytecode version
 
+* `gem install rubyzip`
 * Run `ruby jar-poker.rb XXX.jar [...]`
 
 ```shell
